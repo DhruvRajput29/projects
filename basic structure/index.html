@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --body-color: rgb(178, 198, 216);
+    --navbar-font-color: rgb(93, 70, 70);
+    --navbar-background-color:rgba(255, 255, 255, 0.315);
+    --hover-color-change: wheat;
+    --box1-bg-color: rgb(194, 150, 157);
+    --box1-border-color: red;
+    --box2-bg-color: rgb(194, 150, 157);
+    --box2-border-color: red;
+    --box3-bg-color: aquamarine;
+    --box3-border-color: red;
+    --footer-bg-color: black;
+    --footer-border-color: red;
+    --footer-font-color: white;
+}
+
+body {
+    background-color: var(--body-color);
+}
+
+.navbar li {
+    list-style: none;
+    margin: 10px;
+    padding: 10px;
+    border: 5px solid rgba(0, 0, 0, 0.534);
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+.navbar {
+    display: flex;
+    background-color: var(--navbar-background-color); /* This should be --navbar-font-color? */
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+
+li:hover {
+    color: var(--hover-color-change);
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+}
+
+.box1 {
+    background-color: var(--box1-bg-color);
+    border: 1px solid var(--box1-border-color);
+    height: 70vh;
+    width: 30vw;
+    position: relative;
+    right: 50px;
+    top: 100px;
+}
+
+.box1 h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.box2 h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.box2 {
+    background-color: var(--box2-bg-color);
+    border: 1px solid var(--box2-border-color);
+    height: 70vh;
+    width: 30vw;
+    position: relative;
+    left: 50px;
+    top: 100px;
+}
+
+.box3 {
+    background-color: var(--box3-bg-color);
+    border: 1px solid var(--box3-border-color);
+    border-radius: 40px;
+    height: 20vh;
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 130px;
+}
+
+.footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-font-color);
+    border: 2px solid var(--footer-border-color);
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 200px;
+}
+
+.logo {
+    display: flex;
+    justify-content: end;
+    position: fixed;
+    z-index: 1;
+    right: 10px;
+    bottom: 20px;
+}
+        
+    </style>
+<body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="boxes">
+            <div class="box1">
+                <h2>I am box 1</h2>
+            </div>
+            <div class="box2">
+                <h2>I am box 2</h2>
+            </div>
+        </div>
+        <div class="intro">
+            <div class="box3">
+                <h1>Wellcome to this Sigma Web Development Express</h1>
+            </div>
+        </div>
+        <div class="logo">
+            <img width="120px" src="https://e7.pngegg.com/pngimages/700/156/png-clipart-organization-professional-logo-junior-frontend-developer-freelancer-internal-revenue-service-blue-text.png" alt="">
+        </div>
+    </main>
+    <footer>
+        <div class="footer">&copy;copyright-2023</div>
+    </footer>
+</body>
+</html>
