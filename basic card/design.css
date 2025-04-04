@@ -1,0 +1,33 @@
+
+body{
+    background-color: gray;
+}
+.card{
+    height:450px;
+    width:252px;
+    background-color: white;
+    border-radius:15px;
+}
+.image img{
+    height:160px;
+    width:230px;
+    padding: 10px 10px;
+    border-radius:25px;
+}
+.points span{
+    border: 2px solid rgba(0, 0, 0, 0.37);
+    border-radius: 5px;
+    margin: 3px 3px;
+    padding: 0px 3px ;
+}
+.contain p{
+    font-size: 18px;
+    text-align: center;
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+.contain h1{
+    padding: 0px 3px;
+    text-decoration: overline underline;
+    text-align: center;
+}
