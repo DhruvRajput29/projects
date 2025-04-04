@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <h1>Weather Forecast</h1>
+    <div class="input">
+        <input type="text" id="city" placeholder="Enter city name">
+    </div>
+    <div class="button">
+        <button id="submit">Get Weather</button>
+    </div>  
+    <div id="weather-data">
+        <p id="city-name"></p>
+        <p id="temperature"></p>
+        <p id="description"></p>
+        <img id="icon" src="" alt="Weather Icon">
+    </div>
+
+    <script>
+        const apiKey = '6b792dd381526b4e02093ab46826d2e4';
+const cityInput = document.getElementById('city');
+const submitButton = document.getElementById('submit');
+const weatherDataDiv = document.getElementById('weather-data');
+const cityNameElement = document.getElementById('city-name');
+const temperatureElement = document.getElementById('temperature');
+const descriptionElement = document.getElementById('description');
+const iconElement = document.getElementById('icon');
+
+submitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const city = cityInput.value.trim();
+    if (city) {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+            .then(response => response.json())
+            .then(data => {
+                const temperature = data.main.temp;
+                const description = data.weather[0].description;
+                const iconUrl = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+                cityNameElement.textContent = data.name;
+                temperatureElement.textContent = `Temperature: ${temperature}°C`;
+                descriptionElement.textContent = `Description: ${description}`;
+                iconElement.src = iconUrl;
+                weatherDataDiv.style.display = 'block';
+            })
+            .catch(error => console.error(error));
+    }
+});
+
+    </script>
+</body>
+
+</html>
