@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number = Math.random()
+let a = prompt("enter first numner");
+let b = prompt("enter second numnber");
+let c = prompt("enter operator");
+
+
+if(number>0.1){
+    console.log(number)
+    if(c=="+"){
+        console.log(a+b)
+
+        alert(a+b)
+    }
+    else if(c=="-"){
+        console.log(a-b)
+
+        alert(a-b)
+    }
+    else if(c=="*"){
+        console.log(a*b)
+
+        alert(a*b)
+    }
+    else if(c=="/"){
+        console.log(a/b)
+
+        alert(a/b)
+    }
+    else{
+        console.log("invlid input")
+    }
+}
+else{
+    console.log(number)
+    if(c=="+"){
+        console.log("your result are faulty",a-b)
+        alert(a-b)
+    }
+    else if(c=="-"){
+        console.log("your result are faulty",a/b)
+        alert(a/b)
+    }
+    else if(c=="*"){
+        console.log("your result are faulty",a+b)
+        alert(a+b)
+    }
+    else if(c=="/"){
+        console.log("your result are faulty",a**b)
+        alert(a**b)
+    }
+    else{
+        console.log("invlid input")
+    }
+}
+
+    </script>
+</body>
+</html>
