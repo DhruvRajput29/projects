@@ -1,0 +1,318 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#111827;
+    color:#F8FAFC;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 10%;
+    position:sticky;
+    top:0;
+    background:#0F172A;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:#F5F5DC;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:#F5F5DC;
+}
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 10%;
+}
+
+.hero-content{
+    max-width:600px;
+}
+
+.hero h1{
+    font-size:64px;
+    margin:10px 0;
+}
+
+.hero h2{
+    color:#E8DCC4;
+}
+
+.description{
+    margin:25px 0;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    padding:14px 25px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.primary{
+    background:#3B82F6;
+    color:#F5F5DC;
+}
+
+.secondary{
+    border:1px solid #F5F5DC;
+    color:#F5F5DC;
+}
+
+.hero-image img{
+    width:400px;
+    border-radius:60%;
+}
+
+section{
+    padding:100px 10%;
+}
+
+section h2{
+    margin-bottom:30px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.skills span{
+    background:#5C1A1A;
+    padding:15px 25px;
+    border-radius:10px;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#5C1A1A;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:20px 20px 0;
+}
+
+.card p{
+    padding:20px;
+}
+
+.links{
+    display:flex;
+    gap:10px;
+    padding:0 20px 20px;
+}
+
+.links a{
+    background:#8B0000;
+    color:#F5F5DC;
+    padding:10px 18px;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+.contact{
+    background:#5C1A1A;
+    padding:30px;
+    border-radius:15px;
+}
+
+.contact p{
+    margin:15px 0;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+}
+#resume .btn{
+    display: inline-block;
+    margin-top: 20px;
+}
+#contact a{
+   color: #F5F5DC;
+   text-decoration: none; 
+}
+#contact a:hover{
+    color:cornflowerblue;
+}
+
+/* ================= TABLET ================= */
+@media screen and (max-width: 1024px){
+
+    nav{
+        padding:20px 5%;
+    }
+
+    .hero{
+        padding:50px 5%;
+        gap:40px;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .hero-image img{
+        width:250px;
+    }
+
+    section{
+        padding:80px 5%;
+    }
+
+    .project-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/* ================= MOBILE ================= */
+@media screen and (max-width: 768px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        padding:50px 20px;
+        gap:40px;
+    }
+
+    .hero-content{
+        max-width:100%;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero h2{
+        font-size:24px;
+    }
+
+    .description{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .hero-image img{
+        width:220px;
+    }
+
+    section{
+        padding:70px 20px;
+    }
+
+    .skills{
+        justify-content:center;
+    }
+
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact{
+        padding:20px;
+    }
+
+    .contact p{
+        word-break:break-word;
+    }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media screen and (max-width: 480px){
+
+    .logo{
+        font-size:24px;
+    }
+
+    nav ul{
+        gap:10px;
+        font-size:14px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero h2{
+        font-size:20px;
+    }
+
+    .hero-image img{
+        width:180px;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .skills span{
+        width:100%;
+        text-align:center;
+    }
+
+    footer{
+        font-size:14px;
+    }
+}

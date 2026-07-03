@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Developer</title>
+    <style>
+        body {
+            background-color: lightsteelblue;
+            text-align: center;
+            background-image: url('image.png');
+        }
+
+        input {
+            background-origin: padding-box;
+            background-color: lightgoldenrodyellow;
+        }
+
+        div {
+            background-origin: padding-box;
+            box-shadow: inset;
+            display: inline-block;
+        }
+
+        .box{
+            color: aqua;
+            height: auto;
+            width: auto;
+        }
+
+        .photo {
+            border: 10px solid black;
+        }
+
+        * {
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login / Sign Up</h1>
+    <form onsubmit="return validateForm()">
+        <div>
+            <p class="box box1">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+            </p>
+            <p class="box box2">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </p>
+            <p class="box box3">
+                <label for="birth-date">Enter your birth date</label>
+                <input type="date" id="birth-date" required>
+            </p>
+            <p class="box box4">
+                <label>Gender:</label>
+                <input type="radio" name="gender" id="male" value="male" required>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female" value="female" required>
+                <label for="female">Female</label>
+            </p>
+            <p class="box box5">
+                <label for="state">State</label>
+                <select name="state" id="state" required>
+                    <option value="">Select State</option>
+                </select>
+                <label for="city">City</label>
+                <select name="city" id="city" required>
+                    <option value="">Select City</option>
+                </select>
+            </p>
+            <p class="box box6">
+                <label for="phone-number">Phone number</label>
+                <input type="text" id="phone-number" placeholder="+91 00000 00000" required>
+                <input type="button" value="Get OTP" onclick="getOTP()" required>
+            </p>
+            <p class="box box7">
+                <label for="otp-number">OTP number</label>
+                <input type="text" id="otp-number" placeholder="Enter your OTP number" required>
+            </p>
+            <p class="box box7">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+            </p>
+            <p class="box box8">
+                <input type="submit" value="Submit">
+            </p>
+        </div>
+    </form>
+    <div class="photo">
+        <img src="photo.png" alt="photo">
+    </div>
+    <h1>Thanks for visiting our site</h1>
+   
+    <script>
+        function getOTP() {
+            const fakeOTP = '123456';  // You can change this to any fixed OTP
+            alert('Your OTP is: ' + fakeOTP);
+
+            // Store the OTP in sessionStorage for later validation
+            sessionStorage.setItem('otp', fakeOTP);
+        }
+
+        const stateCityData = {
+            "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Gandhinagar", "Junagadh"],
+            "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Thane", "Aurangabad", "Solapur", "Amravati"],
+            "Karnataka": ["Bengaluru", "Mysuru", "Mangaluru", "Hubli", "Dharwad", "Belagavi", "Tumakuru", "Ballari"],
+            "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tirunelveli", "Vellore", "Erode"],
+            "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Ajmer", "Kota", "Bikaner", "Bhilwara", "Alwar"],
+            "Uttar Pradesh": ["Lucknow", "Kanpur", "Ghaziabad", "Agra", "Meerut", "Varanasi", "Allahabad", "Bareilly"],
+            "West Bengal": ["Kolkata", "Asansol", "Siliguri", "Durgapur", "Bardhaman", "Malda", "Kharagpur", "Darjeeling"],
+            "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Jabalpur", "Ujjain", "Sagar", "Ratlam", "Rewa"],
+            
+        };
+
+        const stateSelect = document.getElementById('state');
+        const citySelect = document.getElementById('city');
+
+        
+        window.onload = function() {
+            for (let state in stateCityData) {
+                let option = document.createElement('option');
+                option.value = state;
+                option.textContent = state;
+                stateSelect.appendChild(option);
+            }
+        };
+
+       
+        stateSelect.addEventListener('change', function() {
+            
+            citySelect.innerHTML = '<option value="">Select City</option>';
+
+           
+            let cities = stateCityData[stateSelect.value];
+
+           
+            if (cities) {
+                cities.forEach(city => {
+                    let option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+        });
+
+        function validateForm() {
+            const enteredOtp = document.getElementById('otp-number').value;
+            const storedOtp = sessionStorage.getItem('otp');
+
+            if (enteredOtp !== storedOtp) {
+                alert('Invalid OTP');
+                return false;
+            }
+
+          
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const birthDate = document.getElementById('birth-date').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const city = document.getElementById('city').value;
+            const state = document.getElementById('state').value;
+            const phoneNumber = document.getElementById('phone-number').value;
+            const email = document.getElementById('email').value;
+
+            if (!username || !password || !birthDate || !gender || !city || !state || !phoneNumber || !email) {
+                alert('Please fill out all fields.');
+                return false;
+            }
+
+            alert('Form submitted successfully!');
+            return true;
+        }
+    </script>
+</body>
+</html>
